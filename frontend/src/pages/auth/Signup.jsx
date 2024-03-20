@@ -51,7 +51,7 @@ const Signup = (props) => {
 
             // Add more validation logic here (e.g., password strength, email validation)
 
-            const response = await axios.post('http://localhost:8080/api/signup', { name, email, password, cpassword });
+            const response = await axios.post('https://studentattendence-backendapi.vercel.app/api/signup', { name, email, password, cpassword });
             const { token } = response.data;
 
             // Store the token securely (e.g., using session storage or HTTP-only cookies)
