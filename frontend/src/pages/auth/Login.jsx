@@ -26,7 +26,7 @@ const Login = (props) => {
     ];
     const handleLogin = async () => {
         try {
-            const response = await axios.post('http://localhost:8080/api/login', { email, password });
+            const response = await axios.post('https://studentattendence-backendapi.vercel.app/api/login', { email, password });
             const { token } = response.data;
 
             // Store the token securely (e.g., using session storage or HTTP-only cookies)
