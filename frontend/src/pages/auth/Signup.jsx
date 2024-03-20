@@ -1,8 +1,7 @@
-import { Box, Button, Card, CardContent, TextField, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import '../../App.css'
+import { Box, Button, Card, CardContent, TextField, Typography } from '@mui/material';
 
 const Signup = (props) => {
     const [name, setName] = useState('');
@@ -11,9 +10,10 @@ const Signup = (props) => {
     const [cpassword, setCpassword] = useState('');
     const navigate = useNavigate();
 
-    useEffect(()=>{
-        document.title=props.title
-    },)
+    // useEffect for setting document title
+    useEffect(() => {
+        document.title = props.title;
+    }, [props.title]);
 
     const Signuptype = [
         {
@@ -54,8 +54,8 @@ const Signup = (props) => {
             const response = await axios.post('https://studentattendence-backendapi.vercel.app/api/signup', { name, email, password, cpassword });
             const { token } = response.data;
 
-            // Store the token securely (e.g., using session storage or HTTP-only cookies)
-            localStorage.setItem('token', token);
+            // Store the token securely in session storage
+            sessionStorage.setItem('token', token);
 
             alert("User has been registered successfully");
             navigate('/private/student/create'); // Redirect to protected route or display confirmation
@@ -66,7 +66,7 @@ const Signup = (props) => {
 
     return (
         <div className='div'>
-            <Card sx={{ marginTop: 5}}>
+            <Card sx={{ marginTop: 5 }}>
                 <CardContent>
                     <Box>
                         <Typography variant='h3' component="div" sx={{ textAlign: 'center', margin: 5 }} >
@@ -79,28 +79,28 @@ const Signup = (props) => {
                     <Box>
                         {
                             Signuptype.map((item, index) =>
-                            <div key={index} style={{ marginBottom: '10px', display:'flex',justifyContent:'center', alignItems:'center' }}>
-                            <TextField
-                                type={item.type}
-                                value={item.value}
-                                onChange={(e) => item.changes(e.target.value)}
-                                label={item.placeholder}
-                                variant="outlined"
-                                margin='dense'
-                                style={{ width: '50%' }}
-                            />
-                        </div>                     
+                            <div key={index} style={{ marginBottom: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <TextField
+                                    type={item.type}
+                                    value={item.value}
+                                    onChange={(e) => item.changes(e.target.value)}
+                                    label={item.placeholder}
+                                    variant="outlined"
+                                    margin='dense'
+                                    style={{ width: '50%' }}
+                                />
+                            </div>
                             )
                         }
                     </Box>
-                    <div style={{display:'flex',justifyContent:'center', alignItems:'center'}}>
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Button variant='contained' color="primary" onClick={handleSignup} sx={{ marginTop: 5 }} >
                             Submit
                         </Button>
                     </div>
-                    <div style={{display:'flex',justifyContent:'center', alignItems:'center', marginTop: 5}}>
-                    <div style={{marginRight:20}}><Link to="/login" >Already Have An Account</Link></div>
-                    <div><Link to="/">Home</Link></div>
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 5 }}>
+                        <div style={{ marginRight: 20 }}><Link to="/login">Already Have An Account</Link></div>
+                        <div><Link to="/">Home</Link></div>
                     </div>
                 </CardContent>
             </Card>
