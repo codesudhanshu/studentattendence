@@ -28,7 +28,7 @@ app.use("/api/student",StudentSearchRouter)
 app.use("/api/student",StudentAttendenceRoutes)
 app.use("/api/student",AttendenceFilter)
 
-app.post("/",(req,res)=>{
+app.get("/",(req,res)=>{
     res.send("Hello World")
 })
 
