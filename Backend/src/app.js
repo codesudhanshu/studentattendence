@@ -16,7 +16,7 @@ const Login = require('../routes/LoginRoutes')
 const app = express()
 app.use(cors({
     origin:"https://studentattendance.vercel.app",
-    method: "GET,POST,PUT,PATCH,DELETE",
+    method: ["GET","POST","PUT","PATCH","DELETE"],
     credentials: true
 }
 ))
