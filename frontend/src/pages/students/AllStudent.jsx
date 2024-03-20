@@ -34,7 +34,7 @@ const AllStudent = (props) => {
             );
             setData(updatedData);
 
-            await axios.post(`http://localhost:8080/api/student/attendence/${id}`);
+            await axios.post(`https://studentattendence-backendapi.vercel.app/api/student/attendence/${id}`);
             console.log('Attendance updated successfully');
         } catch (error) {
             console.error('Error updating attendance:', error);
