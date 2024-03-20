@@ -17,7 +17,7 @@ const StudentDetailes = (props) => {
         document.title = props.title;
         const fetchData = async () => {
             try {
-                const result = await axios.get('http://localhost:8080/api/student/search');
+                const result = await axios.get('https://studentattendence-backendapi.vercel.app/api/student/search');
                 setData(result.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
