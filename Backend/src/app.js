@@ -28,6 +28,10 @@ app.use("/api/student",StudentSearchRouter)
 app.use("/api/student",StudentAttendenceRoutes)
 app.use("/api/student",AttendenceFilter)
 
+app.post("/",(req,res)=>{
+    res.send("Hello World")
+})
+
 mongoose.connect(url,{useNewUrlParser: true, useUnifiedTopology: true})
 .then(()=>console.log("Mongoose db has been connected"))
 .catch((err)=>console.log(`mongoodb as been not conected ${err}`))
