@@ -32,7 +32,7 @@ app.get("/",(req,res)=>{
     res.send("Hello World")
 })
 
-mongoose.connect(url,{useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb+srv://database:a2gvYKAKH8QjLYOC@cluster0.1hei1cc.mongodb.net/Attendancesystem?retryWrites=true&w=majority&appName=Cluster0')
 .then(()=>console.log("Mongoose db has been connected"))
 .catch((err)=>console.log(`mongoodb as been not conected ${err}`))
 
