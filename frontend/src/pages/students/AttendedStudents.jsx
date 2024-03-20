@@ -33,7 +33,7 @@ const AttendedStudents = (props) => {
             try {
                 // Convert the selected date to YYYY-MM-DD format
                 const formattedDate = new Date(selectedDate).toISOString().slice(0, 10);
-                const result = await axios.get(`http://localhost:8080/api/student/filter?date=${formattedDate}`);
+                const result = await axios.get(`https://studentattendence-backendapi.vercel.app/api/student/filter?date=${formattedDate}`);
                 setData(result.data);
                 setError('');
             } catch (error) {
