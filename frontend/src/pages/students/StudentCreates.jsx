@@ -79,7 +79,7 @@ const StudentCreates = (props) => {
 
         setLoading(true);
         try {
-            const result = await axios.post('http://localhost:8080/api/student/create', {
+            const result = await axios.post('https://studentattendence-backendapi.vercel.app/api/student/create', {
                 name,
                 email,
                 phoneNumber,
